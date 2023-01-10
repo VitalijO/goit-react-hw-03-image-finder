@@ -44,9 +44,16 @@ export class App extends React.Component{
     this.setState({ isLoading: true })
     try {
       const materials = await getMaterials(this.state.name, this.state.page);
+       if (materials.total === 0) {
+        toast.info(`Not found`)
+      
+         
+       }
        if (materials.total > 0 && this.state.page === 1) {
-        toast.success(`Find ${materials.total} items`)
-      }
+         toast.success(`Find ${materials.total} items`)
+       }
+     
+      
       this.setState({total:materials.total})
       if (this.state.page > 1) {
           this.setState(prevState => ({
@@ -69,21 +76,17 @@ export class App extends React.Component{
 
   loadMore = () => {
     this.setState(prevState => ({ page: prevState.page + 1 }));
-
   };
 
 
-  toggleModal = () => {
-    this.setState(({modal})=>({
-      modal:!modal
-    }))
+  toggleModal = () =>
+  {
+    this.setState(({ modal }) => ({ modal: !modal }))
   }
 
   openModal = item => {
-   
   this.toggleModal()
-  //  const image = this.state.materials.find(image => image.id === item.id);
-      this.setState({ bigImage: item });
+  this.setState({ bigImage: item });
   };
 
 
