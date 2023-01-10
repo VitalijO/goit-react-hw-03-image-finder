@@ -44,8 +44,8 @@ export class App extends React.Component{
     this.setState({ isLoading: true })
     try {
       const materials = await getMaterials(this.state.name, this.state.page);
-       if (materials.total === 0) {
-        toast.error("No data")
+       if (materials.total > 0 && this.state.page === 1) {
+        toast.success(`Find ${materials.total} items`)
       }
       this.setState({total:materials.total})
       if (this.state.page > 1) {
@@ -110,7 +110,7 @@ export class App extends React.Component{
          
           <Button onClick={this.loadMore} />
         )}
-        <ToastContainer autoClose = {3000} />
+        <ToastContainer autoClose = {1500} Transition="zoom" />
     </div>
     )
   }

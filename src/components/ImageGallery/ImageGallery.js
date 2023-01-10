@@ -12,8 +12,8 @@ export const ImageGallery = ({materials, onOpen, onClose}) => {
     <ImageGalleryItem
     key={item.id}           
     item={item }
-                    onOpen={onOpen}
-                    onClose={onClose}
+    onOpen={onOpen}
+    onClose={onClose}
     />
      ))}
            
