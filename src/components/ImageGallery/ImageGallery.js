@@ -5,7 +5,7 @@ import React from "react";
 
 
 
-export const ImageGallery = ({materials, onOpen, onClose}) => {
+export const ImageGallery = ({materials, onOpen }) => {
     return (
       <div className={css.ImageGallery}> 
             {materials.map(item => (     
@@ -13,7 +13,7 @@ export const ImageGallery = ({materials, onOpen, onClose}) => {
     key={item.id}           
     item={item }
     onOpen={onOpen}
-    onClose={onClose}
+    
     />
      ))}
            

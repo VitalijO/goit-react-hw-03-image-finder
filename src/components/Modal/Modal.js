@@ -24,13 +24,16 @@ export class Modal extends Component {
  handleClick = e  => {
     if (e.target.tagName !== 'IMG') this.props.onClose();
   };
+  handleDoubleClick = e  => {
+    if (e.target.tagName === 'IMG') this.props.onClose();
+  };
     
     render() {
       const {image: { largeImageURL, tags}} = this.props;
       return createPortal(
         <div className={css.Modal} 
                  > 
-                <div className={css.Overlay} onClick={this.handleClick} >
+                <div className={css.Overlay} onClick={this.handleClick} onDoubleClick={this.handleDoubleClick} >
                   <img src={largeImageURL } alt={tags}
             />
           </div>

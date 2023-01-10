@@ -1,6 +1,6 @@
 import css from "./ImageGalleryItem.module.css"
  
-export const ImageGalleryItem = ({item, onClose, onOpen}) => {
+export const ImageGalleryItem = ({item, onOpen}) => {
     return (
       
 
